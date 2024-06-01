@@ -5,9 +5,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+import os
 
 app = Flask(__name__) #cliar uma aplicação
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///comunidade.db"
+if os.getenv("DEBUG") == 0: # para colocar o banco de dados online
+    link_BD = os.getenv("DATABASE_URL")
+else:
+    link_BD = "sqlite://comunidade.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = link_BD
 app.config["SECRET_KEY"] = "c179ad01ab8a2855afd8724d01d43286" #senha de criptografia do site
 app.config["UPLOAD_FOLDER"] = "static/fotos_posts" # configuraçao para receber uploads de arquivos ou nesse caso fotos
 
