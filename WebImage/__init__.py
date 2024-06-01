@@ -8,11 +8,11 @@ from flask_bcrypt import Bcrypt
 import os
 
 app = Flask(__name__) #cliar uma aplicação
-if os.getenv("DEBUG") == 0: # para colocar o banco de dados online
-    link_BD = os.getenv("DATABASE_URL")
-else:
-    link_BD = "sqlite://comunidade.db"
-app.config["SQLALCHEMY_DATABASE_URI"] = link_BD
+# if os.getenv("DEBUG") == 0: # para colocar o banco de dados online
+#     link_BD = os.getenv("DATABASE_URL")
+# else:
+#     link_BD = "sqlite://comunidade.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SECRET_KEY"] = "c179ad01ab8a2855afd8724d01d43286" #senha de criptografia do site
 app.config["UPLOAD_FOLDER"] = "static/fotos_posts" # configuraçao para receber uploads de arquivos ou nesse caso fotos
 
