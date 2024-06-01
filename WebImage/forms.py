@@ -3,7 +3,7 @@
 from flask_wtf import FlaskForm #cria formularios para o site
 from wtforms import StringField, PasswordField, SubmitField, FileField # criaçao de formularios
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError # validadores
-from Fakepinterest.models import Usuario #caminho da pasta e da biblioteca do site Fakepinterest.model
+from WebImage.models import Usuario #caminho da pasta e da biblioteca do site Fakepinterest.model
 
 class FormLogin(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()]) # dentro do validador a lista de e-mail validos

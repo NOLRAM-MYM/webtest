@@ -1,5 +1,5 @@
 #criar a estrutura de banco de dados
-from Fakepinterest import database, login_manager # caminho do __init__
+from WebImage import database, login_manager # caminho do __init__
 from datetime import datetime
 from flask_login import UserMixin
 

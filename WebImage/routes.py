@@ -1,9 +1,9 @@
 #criar rotas do site (links)
 from flask import render_template, url_for, redirect
-from Fakepinterest import app, database, bcrypt # o arquivo app que esta dentro da pasta __init__
-from Fakepinterest.models import Usuario, Foto
+from WebImage import app, database, bcrypt # o arquivo app que esta dentro da pasta __init__
+from WebImage.models import Usuario, Foto
 from flask_login import login_required, login_user, logout_user, current_user
-from Fakepinterest.forms import FormLogin, FormCriarConta, FormFoto
+from WebImage.forms import FormLogin, FormCriarConta, FormFoto
 import os
 from werkzeug.utils import secure_filename # tratamento do arquivo
 

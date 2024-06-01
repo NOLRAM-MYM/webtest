@@ -17,4 +17,4 @@ login_manager = LoginManager(app)
 login_manager.login_view = "homepage" #direcionamento do login
 
 
-from Fakepinterest import routes # as importacoes de outros arquivos tem que ficar no final como organizaçao
+from WebImage import routes # as importacoes de outros arquivos tem que ficar no final como organizaçao
