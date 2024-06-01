@@ -8,7 +8,9 @@
       <div class="conteudo">
           {% for foto in fotos %}
             <a href="{{ url_for('perfil', id_usuario=foto.usuario.id)}}" class="bloco-imagem">
-              <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+
+                <img src="{{ url_for('custom_static', filename='{}'.format(foto.imagem)) }}">
+              <! img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
             </a>
           {% endfor  %}
       </div>

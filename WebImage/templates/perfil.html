@@ -41,7 +41,9 @@ Perfil - {{ usuario.username }}
 {% for foto in usuario.fotos %}
 
         <div class="bloco-imagem">
-          <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}">  <! cria a imagem dentro do site>
+
+            <img src="{{ url_for('custom_static', filename='{}'.format(foto.imagem)) }}">
+            <! img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" > <! cria a imagem dentro do site>
         </div>
 
 {% endfor  %}

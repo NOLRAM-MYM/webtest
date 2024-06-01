@@ -1,5 +1,5 @@
 #criar rotas do site (links)
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, send_from_directory
 from WebImage import app, database, bcrypt # o arquivo app que esta dentro da pasta __init__
 from WebImage.models import Usuario, Foto
 from flask_login import login_required, login_user, logout_user, current_user
@@ -34,6 +34,9 @@ def criar_conta():
         return redirect(url_for("perfil", id_usuario=usuario.id))
     return render_template("criarconta.html", form=form_criarconta)
 
+@app.rout("/uploads/<path:filename>")
+def custom_static(filename):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], filename, as_attechement=True)
 
 
 
@@ -48,6 +51,8 @@ def perfil(id_usuario):
             nome_seguro = secure_filename(arquivo.filename)
             # salvar o arquivo na pasta fotos_posts
             # os.path.join(os.path.abspath(os.path.dirname(__file__)),  ,  )
+            # caminho = os.path.join(app.config["UPLOAD_FOLDER"],
+            #                        nome_seguro)
             caminho = os.path.join(os.path.abspath(os.path.dirname(__file__)),
                               app.config["UPLOAD_FOLDER"],
                               nome_seguro) #nesse exemplo junta o caminho da pasta e o arquivo
