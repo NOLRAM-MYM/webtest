@@ -34,7 +34,7 @@ def criar_conta():
         return redirect(url_for("perfil", id_usuario=usuario.id))
     return render_template("criarconta.html", form=form_criarconta)
 
-@app.rout("/uploads/<path:filename>")
+@app.route("/uploads/<path:filename>")
 def custom_static(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename, as_attechement=True)
 
